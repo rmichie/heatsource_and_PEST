@@ -1,16 +1,23 @@
 # converts heat source landcover input from Wide to long format
 # ouputs at txt
+options(echo=TRUE)
+
+cmd_args <- commandArgs(trailingOnly = TRUE)
+
+top_dir <- cmd_args[1]
+mod_dir <- cmd_args[2]
+in_name <- cmd_args[3]
+out_name <- cmd_args[4]
 
 library(reshape2)
 library(stringr)
 
-options(echo=TRUE)
+top_dir <- "C:/WorkSpace/GitHub/heatsource_and_PEST/"
+mod_dir <- "Obs_Effective_Shade_v1/outputs/"
+in_name <- "lcdata.csv"
+out_name <- "lcdata.txt"
 
-outpath <- commandArgs(trailingOnly = TRUE)
-
-outpath <- "C:/WorkSpace/Quantifying_Conservation_2014/SouthernWillamette/Heat_Source/01_Current_ObsEffectiveShade/"
-
-df.wide <- read.table(paste0(outpath,"Obs_Effective_Shade_v1/inputs/lcdata.csv"),
+df.wide <- read.table(paste0(top_dir,mod_dir,in_name),
                     sep=",",dec=".",
                     skip=0, header=TRUE, 
                     stringsAsFactors = FALSE, 
@@ -65,7 +72,7 @@ df.other$VARIABLE <-as.character(df.other$VARIABLE)
 
 df.long.f <- rbind(df.other,df.lc)
 
-write.table(df.long.f, file=paste0(outpath,"Obs_Effective_Shade_v1/inputs/lcdata.txt"),
+write.table(df.long.f, file=paste0(top_dir,mod_dir,out_name),
             sep = ",",
             dec = ".", 
             quote = FALSE, 

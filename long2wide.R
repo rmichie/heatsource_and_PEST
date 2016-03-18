@@ -1,20 +1,26 @@
 # converts heat source landcover input from long to wide format
 # outputs as csv
+options(echo=TRUE)
+
+cmd_args <- commandArgs(trailingOnly = TRUE)
+
+top_dir <- cmd_args[1]
+mod_dir <- cmd_args[2]
+in_name <- cmd_args[3]
+out_name <- cmd_args[4]
 
 library(reshape2)
 
-options(echo=TRUE)
+top_dir <- "C:/WorkSpace/GitHub/heatsource_and_PEST/"
+mod_dir <- "Obs_Effective_Shade_v1/outputs/"
+in_name <- "lcdata.txt"
+out_name <- "lcdata.csv"
 
-outpath <- commandArgs(trailingOnly = TRUE)
-
-outpath <- "C:/WorkSpace/Quantifying_Conservation_2014/SouthernWillamette/Heat_Source/01_Current_ObsEffectiveShade/"
-
-df.long <- read.table(paste0(outpath,"Obs_Effective_Shade_v1/inputs/lcdata.txt"),
+df.long <- read.table(paste0(top_dir,mod_dir,in_name),
                       sep=",",dec=".",
                       skip=0, header=TRUE, 
                       stringsAsFactors = FALSE, 
                       na.strings = "NA")
-
 
 # This is for ordering the wide col names below
 # needs to be done before rebuilding the LC/ELE names
@@ -52,12 +58,7 @@ df.wide <- df.wide[,col.names]
 # row order
 df.wide <- df.wide[with(df.wide,order(-STREAM_KM)),]
 
-
-
-
-
-
-write.table(df.wide, file=paste0(outpath,"Obs_Effective_Shade_v1/inputs/lcdata.csv"),
+write.table(df.wide, file=paste0(top_dir,mod_dir,out_name),
             sep = ",",
             dec = ".", 
             quote = FALSE, 
