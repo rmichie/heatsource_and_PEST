@@ -1,0 +1,95 @@
+pcf
+* control data
+restart estimation
+6   65  3   0   1
+2   1   single point    1   0   0
+10.0 -3.0   0.3    0.03    10  999
+0.01 1.10 1.0
+0.1   aui
+50   .005  4   4  .005   4
+1    1    1
+* parameter groups
+ht_v absolute 0.05 0.001 switch 2.000 parabolic
+cc_v relative 0.01 0.001 switch 2.000 parabolic
+topo absolute 0.05 0.001 switch 2.000 parabolic
+* parameter data
+height log factor 51.0 1.0 101.0 ht_v 1 0.0 1
+canpy1 log factor 0.90 1.0E-9 1.00 cc_v 1.0 0.0 1
+canpy2 log factor 0.90 1.0E-9 1.00 cc_v 1.0 0.0 1
+topo_w log factor 51.0 1.0 101.0 topo 1 0.0 1
+topo_s log factor 51.0 1.0 101.0 topo 1 0.0 1
+topo_e log factor 51.0 1.0 101.0 topo 1 0.0 1
+* observation groups
+eshade
+* observation data
+LUC2	0.03	1	eshade
+COA2	0.70	1	eshade
+MFW2	0.64	1	eshade
+MFW3	0.06	1	eshade
+UNT0 	0.97	1	eshade
+UNT2	0.97	1	eshade
+UNT1	0.96	1	eshade
+COA1	0.73	1	eshade
+SIM1	0.88	1	eshade
+SNA1	0.98	1	eshade
+DEA1	0.95	1	eshade
+UNT 	0.97	1	eshade
+YOU1	0.98	1	eshade
+BUC2	0.94	1	eshade
+BUC1	0.91	1	eshade
+NFM3	0.43	1	eshade
+NFM2	0.43	1	eshade
+NFM1	0.42	1	eshade
+LOS1	0.52	1	eshade
+LOS2	0.82	1	eshade
+MFW1	0.52	1	eshade
+COU1	0.90	1	eshade
+MCK2	0.63	1	eshade
+MCK1	0.69	1	eshade
+LOO2	0.86	1	eshade
+BLU1	0.64	1	eshade
+COG1	0.95	1	eshade
+SHO5	0.95	1	eshade
+SHO1	0.95	1	eshade
+SEE1	0.90	1	eshade
+AMA4	0.21	1	eshade
+AMA5	0.13	1	eshade
+AMA3	0.53	1	eshade
+AMA2	0.63	1	eshade
+AMA1	0.57	1	eshade
+CAL2	0.26	1	eshade
+MUD2	0.18	1	eshade
+MUD1	0.58	1	eshade
+MAR1	0.07	1	eshade
+LUC1	0.21	1	eshade
+RIT1	0.89	1	eshade
+LIT1	0.55	1	eshade
+CAL1	0.33	1	eshade
+SOD3	0.74	1	eshade
+CAL3	0.26	1	eshade
+MAR2	0.51	1	eshade
+LIT3	0.34	1	eshade
+OAK3	0.89	1	eshade
+OAK4	0.96	1	eshade
+OAK2	0.76	1	eshade
+SLI1	0.94	1	eshade
+BUT2	0.91	1	eshade
+BUT1	0.86	1	eshade
+LAK3	0.56	1	eshade
+LAK2	0.68	1	eshade
+LAK1	0.68	1	eshade
+LIT2	0.76	1	eshade
+FIS1	0.93	1	eshade
+HOR1	0.71	1	eshade
+LOO1	0.22	1	eshade
+SHO4	0.96	1	eshade
+SHO3	0.96	1	eshade
+OWL1	0.93	1	eshade
+TID1	0.64	1	eshade
+BOU1	0.92	1	eshade
+* model command line
+pest_run.bat
+* model input/output
+ptf_lccodes_dummy.tpl   ptf_lccodes_dummy.csv
+ptf_lcdata_dummy.tpl	ptf_lcdata_dummy.csv
+pif_shade.ins           Obs_Effective_Shade_v1\hs_outputs\Shade.csv
