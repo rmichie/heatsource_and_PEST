@@ -29,6 +29,6 @@ set DUM_DIR="/"
 %R_exe% R\lccodes_dummy.R %TOP_DIR% %MOD_DIR% %DUM_DIR% ptf_lccodes_dummy.csv start_lccodes_emergent.csv lccodes_emergent.csv
 %R_exe% R\lcdata_dummy.R %TOP_DIR% %MOD_DIR% %DUM_DIR% ptf_lcdata_dummy.csv start_lcdata_emergent.csv lcdata_emergent.csv
 
-:: run heat heatsource
+:: run heat source
 python Obs_Effective_Shade_v1\HS9_Run_Solar_Only.py
 
